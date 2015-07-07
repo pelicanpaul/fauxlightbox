@@ -53,13 +53,14 @@ var modals = {
                         });
                     },
                     onClose: function (dialog) {
-                        $('.close-modal, #close-x').hide();
+
                         dialog.data.fadeOut('slow', function () {
                             dialog.container.slideUp('slow', function () {
                                 dialog.overlay.fadeOut('slow', function () {
                                     $('body').css({'overflow': 'auto'});
 
                                     $.modal.close(); // must call this!
+                                    $('#close-x').hide();
                                 });
                             });
                         });
@@ -68,14 +69,16 @@ var modals = {
             }
         }
     },
+
     show_fauxlightbox: function(){
-        $('.close-modal').show();
+        var closeModal = $('.close-modal');
+        $(closeModal).show();
         $('.logo-lightbox').show();
         $('#content-main').hide();
         $('#body-faux').show();
         $('#email-signup').show().addClass('modal-faux');
         $('body').addClass('lightbox-faux');
-        $('.close-modal').addClass('close-modal-faux');
+        $(closeModal).addClass('close-modal-faux');
 
         $('.close-modal-faux').on('click', function(){
             $('.bg-logo-svg ').hide();
