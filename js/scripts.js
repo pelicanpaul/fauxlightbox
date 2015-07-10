@@ -86,6 +86,7 @@ var modals = {
             $('#email-signup').hide('slow');
             $('#content-main').show('slow');
             $('body').removeClass('lightbox-faux');
+            $('.logo-lightbox').hide();
             //$.cookie('emailsignup', 'true', { expires: 30 });
         });
     }
@@ -93,9 +94,7 @@ var modals = {
 
 jQuery(document).ready(function($) {
 
-
     // start modal calls
-
 	var screenWidth = $(window).width();
 	var modalWidth = 780;
 	var minHeight = 360;
@@ -109,8 +108,6 @@ jQuery(document).ready(function($) {
     var cookie_set = ''; //$.cookie('emailsignup'); // => "the_value"
 
 	// desktop
-
-
         if(cookie_set != 'true'){
             if(cookie_set != 'true' && utility.isMobile() != 'true') {
                 modals.show_overlay('#email-signup', 475, 360);
